@@ -24,7 +24,6 @@ public class SearchResultPage extends GeneralPage{
 
 
     public String selectRandomResultFoodItem(){
-        lnkDGTN.waitForVisibility();
         String itemName = getRandomItemFromResultGrid().replace("Hệ Thống", "Hệ thống");
         lnkResultItemName.setDynamicValue(itemName);
         lnkResultItemName.waitForVisibility();
@@ -55,13 +54,11 @@ public class SearchResultPage extends GeneralPage{
     }
 
     public String getRandomItemFromResultFood() {
-//        lnkResultFoodItem.waitForVisibility();
         int index = Utils.randomNumber(0, lnkResultFoodItem.getNumberOfElement()-1);
         return getWebElementText(lnkResultFoodItem.getElementByIndex(index));
     }
 
     public String getRandomItemFromResultGrid(){
-//        lnkResultItem.waitForVisibility();
         int index = Utils.randomNumber(0, lnkResultItem.getNumberOfElement()-1);
         return getWebElementText(lnkResultItem.getElementByIndex(index));
     }
@@ -77,28 +74,6 @@ public class SearchResultPage extends GeneralPage{
         lnkDGTN.waitForVisibility();
         DriverManager.sleepInSecond(2);
     }
-
-//    public String selectResultGridFirstItem(){
-//        String parentWindow = DriverManager.getParentWindowID();
-//        String itemName = null;
-//        lnkResultGridFirstItem.waitForVisibility();
-//        if(lnkResultGridFirstItem.getAttribute("data-bind").contains("BranchName")){
-//            lnkResultGridFirstItem.waitForClickable();
-//            lnkResultGridFirstItem.click();
-//            DriverManager.switchToWindowByID(parentWindow);
-//            parentWindow = DriverManager.getParentWindowID();
-//            lnkFirstFoodItem.waitForClickable();
-//            itemName = lnkFirstFoodItem.getText();
-//            lnkFirstFoodItem.click();
-//            DriverManager.switchToWindowByID(parentWindow);
-//        }else {
-//            lnkResultGridFirstItem.waitForClickable();
-//            itemName = lnkResultGridFirstItem.getText();
-//            lnkResultGridFirstItem.click();
-//            DriverManager.switchToWindowByID(parentWindow);
-//        }
-//        return itemName;
-//    }
 
     public boolean ifSearchGridItemContains(String string){
         lnkResultItem.waitForAllElementVisible();

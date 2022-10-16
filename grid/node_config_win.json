@@ -1,0 +1,15 @@
+{
+	"capabilities": [
+		{
+			"browserName": "chrome",
+			"maxInstances": 10
+		},
+		{
+			"browserName": "firefox",
+			"maxInstances": 10
+		}
+	],	
+	"maxSession": 10,
+	"port": -1,
+	"hub": "http://localhost:4444"
+}

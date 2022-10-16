@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="classes" thread-count="2">
+    <test name="Run test on Chrome">
+        <parameter name="browser" value="CHROME"/>
+        <parameter name="runMode" value="local"/>
+        <classes>
+<!--            <class name="tests.FoodyTest.TC001"/>-->
+            <class name="tests.FoodyTest.TC002"/>
+        </classes>
+    </test>
+</suite>

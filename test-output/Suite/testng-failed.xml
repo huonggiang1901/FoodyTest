@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" parallel="classes" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="2" parallel="classes" name="Run test on Chrome(failed)">
+    <parameter name="browser" value="CHROME"/>
+    <parameter name="runMode" value="local"/>
+    <classes>
+      <class name="tests.FoodyTest.TC001">
+        <methods>
+          <include name="TC001"/>
+          <include name="beforeTest"/>
+          <include name="afterTest"/>
+        </methods>
+      </class> <!-- tests.FoodyTest.TC001 -->
+      <class name="tests.FoodyTest.TC002">
+        <methods>
+          <include name="TC002"/>
+          <include name="beforeTest"/>
+          <include name="afterTest"/>
+        </methods>
+      </class> <!-- tests.FoodyTest.TC002 -->
+    </classes>
+  </test> <!-- Run test on Chrome(failed) -->
+</suite> <!-- Failed suite [Suite] -->

@@ -5,7 +5,7 @@
         <parameter name="browser" value="CHROME"/>
         <parameter name="runMode" value="local"/>
         <classes>
-<!--            <class name="tests.FoodyTest.TC001"/>-->
+            <class name="tests.FoodyTest.TC001"/>
             <class name="tests.FoodyTest.TC002"/>
         </classes>
     </test>

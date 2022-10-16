@@ -13,6 +13,7 @@ public class GeneralPage {
     Link lnkCategory = new Link("//div[contains(.,'Select category')]/ancestor::li/following-sibling::li//span[contains(text(),'%s')]");
     Link lnkCategoryMenu = new Link("//span[text()='%s']/parent::a/following-sibling::ul[@class='menu-box']");
     Link lnkCategoryMenuItem = new Link("//span[text()='%s']/parent::a/following-sibling::ul//a[@title='%s']");
+    BaseElement loading = new BaseElement("//img[@class='loading']");
 
     public void inputFilterValue(String item){
         txtFilter.waitForVisibility();

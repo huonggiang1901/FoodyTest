@@ -93,6 +93,17 @@ public class BaseElement {
         }
     }
 
+    public void waitForInvisibility() {
+        try {
+            Logger.info("Wait for invisibility of element: " + this.xpath);
+            WebDriverWait wait = new WebDriverWait(getDriver(), Constants.TIMEOUT);
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(this.byLocator));
+        } catch (Exception e) {
+            Logger.error("Cannot wait for invisibility of element: " + this.xpath);
+            e.printStackTrace();
+        }
+    }
+
     public void waitForClickable(){
         try {
             Logger.info("Wait for clickable of element: " + this.xpath);

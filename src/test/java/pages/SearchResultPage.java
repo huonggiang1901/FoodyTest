@@ -14,14 +14,10 @@ public class SearchResultPage extends GeneralPage{
 
     BaseElement tabSelectedMenuItem = new BaseElement("//div[@id='directory-search-resulttab']//a[@class='current']");
     BaseElement tabTopRate = new BaseElement("//div[contains(@data-bind,'Restaurant')]//a[text()='Đánh giá tốt nhất']");
-
     Link lnkResultItem = new Link ("//div[@class='result-name']//h2/a");
     Link lnkResultItemName = new Link("//div[@class='result-name']//h2/a[text()='%s']");
     Link lnkFoodItem = new Link("//li[@class='ldc-item ng-scope']//h2/a[text()='%s']");
     Link lnkResultFoodItem = new Link ("//li[@class='ldc-item ng-scope']//h2/a");
-
-    Link lnkDGTN = new Link ("//a[@class='current'][contains(text(),'Đánh giá tốt nhất')]");
-
 
     public String selectRandomResultFoodItem(){
         String itemName = getRandomItemFromResultGrid().replace("Hệ Thống", "Hệ thống");
@@ -54,11 +50,13 @@ public class SearchResultPage extends GeneralPage{
     }
 
     public String getRandomItemFromResultFood() {
+        lnkResultFoodItem.waitForElementPresence();
         int index = Utils.randomNumber(0, lnkResultFoodItem.getNumberOfElement()-1);
         return getWebElementText(lnkResultFoodItem.getElementByIndex(index));
     }
 
     public String getRandomItemFromResultGrid(){
+        lnkResultItem.waitForElementPresence();
         int index = Utils.randomNumber(0, lnkResultItem.getNumberOfElement()-1);
         return getWebElementText(lnkResultItem.getElementByIndex(index));
     }
@@ -71,8 +69,7 @@ public class SearchResultPage extends GeneralPage{
     public void selectTopRateTab(){
         tabTopRate.waitForClickable();
         tabTopRate.click();
-        lnkDGTN.waitForVisibility();
-        DriverManager.sleepInSecond(2);
+        loading.waitForInvisibility();
     }
 
     public boolean ifSearchGridItemContains(String string){
